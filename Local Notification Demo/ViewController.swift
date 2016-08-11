@@ -45,8 +45,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func createNotification(sender: AnyObject) {
-        var AlertView = UIAlertController(title: "Alert", message: "You Got Notification!", preferredStyle: UIAlertControllerStyle.Alert)
-        AlertView.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler:nil))
+        timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("notification"), userInfo: nil, repeats: true)
+        time = 10
+        
+        var AlertView = UIAlertController(title: "Alert", message: "Notification is created and will be appearing in 10 seconds!", preferredStyle: UIAlertControllerStyle.Alert)
+        AlertView.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil))
         self.presentViewController(AlertView, animated: true, completion: nil)
         
     }
