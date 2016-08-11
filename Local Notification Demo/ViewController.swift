@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("notification"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(ViewController.notification), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     func notification(){
         time -= 1
         if time == 0 {
-            var notification = UILocalNotification()
+            let notification = UILocalNotification()
             notification.alertAction = "Open App"
             notification.alertBody = "You have an Local Notification"
             notification.applicationIconBadgeNumber = 1
@@ -45,10 +45,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func createNotification(sender: AnyObject) {
-        timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("notification"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(ViewController.notification), userInfo: nil, repeats: true)
         time = 10
         
-        var AlertView = UIAlertController(title: "Alert", message: "Notification is created and will be appearing in 10 seconds!", preferredStyle: UIAlertControllerStyle.Alert)
+        let AlertView = UIAlertController(title: "Alert", message: "Notification is created and will be appearing in 10 seconds!", preferredStyle: UIAlertControllerStyle.Alert)
         AlertView.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil))
         self.presentViewController(AlertView, animated: true, completion: nil)
         

@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func takeInactiveActionNotification(localNotification: UILocalNotification) {
         
-        var AlertView = UIAlertController(title: "Alert", message: "You pushed me to background! Here! You are", preferredStyle: UIAlertControllerStyle.Alert)
+        let AlertView = UIAlertController(title: "Alert", message: "You pushed me to background! Here! You are", preferredStyle: UIAlertControllerStyle.Alert)
         AlertView.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil))
         self.window?.rootViewController?.presentViewController(AlertView, animated: true, completion: nil)
     }
